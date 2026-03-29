@@ -1,23 +1,25 @@
-// MyActor.h
+// MyActor.cpp
 
-#pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
-#include "MyActor.generated.h"
+#include "MyActor.h"
 
-UCLASS()
-class TEAMPROJECT_API AMyActor : public AActor
+AMyActor::AMyActor()
 {
-	GENERATED_BODY()
+	PrimaryActorTick.bCanEverTick = true;
 
-public:
-	AMyActor();
+}
 
-protected:
-	virtual void BeginPlay() override;
+void AMyActor::BeginPlay()
+{
+	Super::BeginPlay();
 
-public:
-	virtual void Tick(float DeltaTime) override;
+	//UE_LOG(LogTemp, Warning, TEXT("AMyActor has begun play!"));
+}
 
-};
+void AMyActor::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	//UE_LOG(LogTemp, Warning, TEXT("AMyActor is ticking!"));
+}
+
